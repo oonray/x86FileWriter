@@ -40,7 +40,7 @@ mov ebx,eax
 ret
 
 write:
-mov eax, 4
+mov eax, 4 
 mov edx, 0x3E8
 mov ecx, data
 int 0x80
