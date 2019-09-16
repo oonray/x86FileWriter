@@ -10,15 +10,15 @@ data: resb 1000
 section .text
 
 _start:
-mov counter, 0
+mov byte [counter], 0
 call makefiles
 call exit
 
 makefiles:
 call create
-cmp counter, 0x3E8
-inc counter
-mov [filename+7], counter
+cmp byte [counter], 0x3E8
+inc [counter]
+mov byte [filename+7], [counter]
 jne makefiles
 ret
 
