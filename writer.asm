@@ -3,19 +3,23 @@ global _start
 section .data
 filename db './file00.txt', 12
 
+section .bss
+counter: resb 1
+data: resb 1000
+
 section .text
 
 _start:
+mov counterm, 0x0
+mov resb, 0x0
 call makefiles
 call exit
 
 makefiles:
-push 0x0
 call create
-cmp dword [esp+4], 0x3E8
-pop eax
-inc eax
-push eax
+cmp counter, 0x3E8
+inc counter
+mov [filename+7], counter
 jne makefiles
 ret
 
@@ -32,7 +36,7 @@ ret
 
 open:
 mov eax, 5
-mov ebx, [esp+4]
+mov ebx, filename
 mov ecx, 1
 int 0x80
 mov ebx,eax
@@ -41,6 +45,7 @@ ret
 write:
 mov eax, 4
 mov edx, 0x3E8
+mov ecx, data
 int 0x80
 ret
 
