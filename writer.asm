@@ -18,7 +18,7 @@ makefiles:
 call create
 cmp dword [counter], 1000
 inc dword [counter]
-mov dword [filename+7], [counter]
+inc byte[filename+7]
 jne makefiles
 ret
 
