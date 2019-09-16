@@ -22,7 +22,6 @@ create:
 mov eax, 8
 mov eax, 777
 mov ebx, filename
-mov bx,[esp+4]
 push ebx
 int 0x80
 
@@ -51,7 +50,7 @@ int 0x80
 ret
 
 exit:
-mov eax, 0
+mov eax, 1
 int 0x80
 
 
