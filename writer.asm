@@ -4,7 +4,7 @@ section .data
 filename db './file00.txt', 12
 
 section .bss
-counter: resb 1
+counter: resb 4
 data: resb 1000
 
 section .text
@@ -16,9 +16,9 @@ call exit
 
 makefiles:
 call create
-cmp byte [counter], 1000
-inc byte [counter]
-mov byte [filename+7], [counter]
+cmp dword [counter], 1000
+inc dword [counter]
+mov dword [filename+7], [counter]
 jne makefiles
 ret
 
