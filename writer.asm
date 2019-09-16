@@ -10,8 +10,7 @@ data: resb 1000
 section .text
 
 _start:
-mov counter, 0x0
-mov data, 0x0
+mov counter, 0
 call makefiles
 call exit
 
