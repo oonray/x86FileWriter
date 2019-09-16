@@ -1,7 +1,7 @@
 global _start
 
 section .data
-filename db 'file00.txt', 10
+filename db './file00.txt', 12
 
 section .text
 
@@ -21,7 +21,7 @@ ret
 
 create:
 mov eax, 8
-mov eax, 777
+mov ecx, 777
 mov ebx, filename
 int 0x80
 
