@@ -16,8 +16,8 @@ call exit
 
 makefiles:
 call create
-cmp byte [counter], 0x3E8
-inc [counter]
+cmp byte [counter], 1000
+inc byte [counter]
 mov byte [filename+7], [counter]
 jne makefiles
 ret
