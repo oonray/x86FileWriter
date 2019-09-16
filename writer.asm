@@ -16,7 +16,7 @@ call exit
 
 makefiles:
 call create
-cmp dword [counter], 1000
+cmp dword [counter], 0x3B8
 inc dword [counter]
 inc byte[filename+7]
 jne makefiles
