@@ -6,15 +6,16 @@ filename db 'file00.txt', 10
 section .text
 
 _start:
-push 0x0;
 call makefiles
 call exit
 
 makefiles:
+push 0x0
 call create
-mov ecx, [esp+4]
-push ecx
 cmp dword [esp+4], 0x3E8
+pop eax
+inc eax
+push eax
 jne makefiles
 ret
 
@@ -22,7 +23,6 @@ create:
 mov eax, 8
 mov eax, 777
 mov ebx, filename
-push ebx
 int 0x80
 
 call open
